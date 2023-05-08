@@ -8,6 +8,8 @@ For my app I decided to go with a slot machine game. I wanted to chose something
 
 ## Wire Frames
 
+![image] ../wireframes/slots-wireframe-01.png
+
 ## User Stories
 
 #### MVP Goals
@@ -15,10 +17,13 @@ For my app I decided to go with a slot machine game. I wanted to chose something
 - As a player, I want my game to recognize three matching symbols in a row or diagonally.
 - As a player, I want the amount of money have I left and have wagered to be clear at all times.
 - As a player, like to know when I win and how much I win.
+- I will use a random number generator to decide the position of each wheel, or at least for each icon position in the 3x3 grid.
+- As a player, I want UI for adding and cashing out funds.
+- As a player, I want a clear ruleset explaining how to game works.
 
 #### Stretch Goals
 
-- As a player, I would like a victory animation when I win the game, so that I feel good about my victory!
-- As a player, I would like to hear an audible sound when I mark a game box so that I know my selection worked.
-- As a player, I would like to play this game online so that I don't have to have my challenger sitting next to me.
-- As a player who wants to dominate the battlefield I want to become the ultimate tic tac toe tactician so I can beat all of my opponents
+- I would like to add at least one bonus symbol (bar equivalent) that adds an exponential function.
+- I would like to add one wild card symbol that functions as a substitute.
+- I would like to put together original graphics to create a completely fleshed out theme.
+- I would like to have the wheels appear to rotate with consistent icon positions.
