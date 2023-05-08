@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Slots</title>
+</head>
+<body>
+  <main>
+    <h1 id="msg">Set your Wager</h1>
+    <div id="slots">
+      <div class="wheel" id="slot1"></div>
+      <div class="wheel" id="slot2"></div>
+      <div class="wheel" id="slot3"></div>
+    </div>
+    <aside>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+    </aside>
+    <div id="ui">
+      <div class="buttonrow">
+        <button id="wager"></button>
+        <button id="spin"></button>
+      </div>
+      <div class="counter">
+        <div class="light" id="light1"></div>
+        <div class="light" id="light2"></div>
+        <div class="light" id="light3"></div>
+        <div class="light" id="light4"></div>
+      </div>
+      <div class="money">
+        <h2 id="balance">Balance: XX.XX</h2>
+        <button id="openMoney">MANAGE</button>
+      </div>
+    </div>
+    <div class="pop-out" id="money-window">
+      <div class="manage-funds" id="add-funds">
+        <p id="add-text">Add to your balance:</p>
+        <button id="add-btn">submit</button>
+      <div class="manage-funds" id="cash-out">
+        <p id="add-text">Cash out current balance:</p>
+        <button id="cash-btn">submit</button>
+      </div>
+      <div class="pop-out" id="rules-window">
+        <h3 id="how-to-header">How to play:</h3>
+        <p id="how-to-body">placeholder</p>
+      </div>
+    </div>
+    <footer>
+      <h3 id="how-to">How to Play</h3>
+    </footer>
+  </main>
+</body>
+</html>
