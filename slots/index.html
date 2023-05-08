@@ -9,6 +9,7 @@
   <title>Slots</title>
 </head>
 <body>
+  <div id="pop-overlay"></div>
   <main>
     <h1 id="msg">Set your Wager</h1>
     <div id="slots">
@@ -25,9 +26,9 @@
       <div class="arrow"></div>
     </aside>
     <div id="ui">
-      <div class="buttonrow">
-        <button id="wager"></button>
-        <button id="spin"></button>
+      <div class="button-row">
+        <button class="wager-spin" id="wager">WAGER</button>
+        <button class="wager-spin" id="spin">SPIN</button>
       </div>
       <div class="counter">
         <div class="light" id="light1"></div>
@@ -41,6 +42,7 @@
       </div>
     </div>
     <div class="pop-out" id="money-window">
+      <button class="close-window"id="close-money">x</button>
       <div class="manage-funds" id="add-funds">
         <p id="add-text">Add to your balance:</p>
         <button id="add-btn">submit</button>
@@ -48,14 +50,14 @@
         <p id="add-text">Cash out current balance:</p>
         <button id="cash-btn">submit</button>
       </div>
-      <div class="pop-out" id="rules-window">
-        <h3 id="how-to-header">How to play:</h3>
-        <p id="how-to-body">placeholder</p>
-      </div>
     </div>
-    <footer>
-      <h3 id="how-to">How to Play</h3>
-    </footer>
+    <div class="pop-out" id="rules-window">
+      <button class="close-window"id="close-rules">x</button>
+      <h4 id="how-to-header">How to play:</h4>
+      <p id="how-to-body">placeholder</p>
+    </div>
+    </div>
+    <button id="how-to">How to Play</button>
   </main>
 </body>
 </html>
