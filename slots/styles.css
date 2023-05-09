@@ -34,7 +34,6 @@ button:hover {
 }
 
 .wager-spin {
-  padding: 20px 0 20px 0;
   width: 30%;
 }
 
@@ -48,7 +47,7 @@ button {
 background-color: gray;
 color: white;
 border: none;
-padding: 20px 50px;
+padding: 10px 40px;
 }
 
 button:active {
@@ -59,6 +58,7 @@ button:active {
   display: flex;
   flex-direction: column;
   background-color: rgb(211, 211, 211);
+  box-shadow: inset 0 0 15px rgb(104, 104, 104);
   width: 32%;
   height: 400px;
   justify-items: center;
@@ -133,4 +133,18 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+
+.counter{
+  display: flex;
+  padding: 0 5vh 0 5vh;
+  margin: 3vh 0 3vh 0;
+  justify-content: space-around;
+}
+
+.light{
+  padding: 20px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: rgb(109, 109, 109);
 }
