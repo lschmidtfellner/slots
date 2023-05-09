@@ -47,7 +47,7 @@ closeMoney.onclick = function () {
 
 //**  slot wheel code  **
 
-//declare constants
+//declare variables
 const items = [
   '🍊',
   '🍒',
@@ -75,23 +75,18 @@ let results1 = []
 let results2 = []
 let results3 = []
 
-// function resetResults() {
-//   results1 = []
-//   results2 = []
-//   results3 = []
-// }
-
-const slot1 = ['🍊', '🍉', '🍒', '🍑', '🍈']
-const slot2 = ['🍈', '🍊', '🍉', '🍒', '🍑']
-const slot3 = ['🍉', '🍒', '🍑', '🍈', '🍊']
+function resetResults() {
+  results1 = []
+  results2 = []
+  results3 = []
+}
 
 function getResults(el, arr) {
   arr.push(...el.innerText.split(' '))
 }
 
-
-function spinWheel(arr1, arr2, el, a = 0) {
-  const time = Math.floor(Math.random() * 1000) + 4000 // Generate a random time between 2s and 4s
+function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
+  const time = Math.floor(Math.random() * 1000) + 4000
 
   const interval = setInterval(() => {
     let b = a + 1
@@ -104,13 +99,13 @@ function spinWheel(arr1, arr2, el, a = 0) {
 
   setTimeout(() => {
     getResults(el, arr2)
-
-    clearInterval(interval) // Stop the interval after the random time has passed
+    clearInterval(interval)
   }, time)
 }
 
 spin.addEventListener('click', function () {
-  spinWheel(slot1, results1, firstWheel)
-  spinWheel(slot2, results2, secondWheel)
-  spinWheel(slot3, results3, thirdWheel)
+  resetResults()
+  spinWheel(items, results1, firstWheel)
+  spinWheel(items, results2, secondWheel)
+  spinWheel(items, results3, thirdWheel)
 })
