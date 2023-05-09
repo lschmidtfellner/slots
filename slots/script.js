@@ -85,45 +85,32 @@ const slot1 = ['🍊', '🍉', '🍒', '🍑', '🍈']
 const slot2 = ['🍈', '🍊', '🍉', '🍒', '🍑']
 const slot3 = ['🍉', '🍒', '🍑', '🍈', '🍊']
 
-function getResults1(string) {
-  console.log(firstWheel.innerText)
-  results1.push(...firstWheel.innerText.split(' '))
-}
-
-function getResults2(string) {
-  console.log(secondWheel.innerText)
-  results2.push(...secondWheel.innerText.split(' '))
-}
-
-function getResults3(string) {
-  console.log(thirdWheel.innerText)
-  results3.push(...thirdWheel.innerText.split(' '))
+function getResults(el, arr) {
+  arr.push(...el.innerText.split(' '))
 }
 
 
-function spinWheel(arr, el, a = 0) {
+function spinWheel(arr1, arr2, el, a = 0) {
   const time = Math.floor(Math.random() * 1000) + 4000 // Generate a random time between 2s and 4s
 
   const interval = setInterval(() => {
     let b = a + 1
     let c = a + 3
-    el.innerText = `${arr[c % arr.length]} ${arr[b % arr.length]} ${
-      arr[a % arr.length]
+    el.innerText = `${arr1[c % arr1.length]} ${arr1[b % arr1.length]} ${
+      arr1[a % arr1.length]
     }`
     a++
   }, 100)
 
   setTimeout(() => {
-    getResults1(firstWheel.innerText)
-    getResults2(secondWheel.innerText)
-    getResults3(thirdWheel.innerText)
+    getResults(el, arr2)
 
     clearInterval(interval) // Stop the interval after the random time has passed
   }, time)
 }
 
 spin.addEventListener('click', function () {
-  spinWheel(slot1, firstWheel)
-  spinWheel(slot2, secondWheel)
-  spinWheel(slot3, thirdWheel)
+  spinWheel(slot1, results1, firstWheel)
+  spinWheel(slot2, results2, secondWheel)
+  spinWheel(slot3, results3, thirdWheel)
 })
