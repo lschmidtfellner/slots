@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer src="script.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link defer rel="stylesheet" href="styles.css">
   <title>Slots</title>
 </head>
 <body>
@@ -38,24 +38,27 @@
       </div>
       <div class="money">
         <h2 id="balance">Balance: XX.XX</h2>
-        <button id="openMoney">MANAGE</button>
+        <button id="open-money">MANAGE</button>
       </div>
     </div>
     <div class="pop-out" id="money-window">
-      <button class="close-window"id="close-money">x</button>
+      <button class="close" id="close-money">x</button>
       <div class="manage-funds" id="add-funds">
-        <p id="add-text">Add to your balance:</p>
+        <h3 id="add-text">Add to your balance:</h3>
+        <input id="deposit-amt">
         <button id="add-btn">submit</button>
       <div class="manage-funds" id="cash-out">
-        <p id="add-text">Cash out current balance:</p>
+        <h3 id="add-text">Cash out current balance:</h3>
+        <input id="withdraw-amt">
         <button id="cash-btn">submit</button>
       </div>
     </div>
-    <div class="pop-out" id="rules-window">
-      <button class="close-window"id="close-rules">x</button>
-      <h4 id="how-to-header">How to play:</h4>
-      <p id="how-to-body">placeholder</p>
     </div>
+    <div class="pop-out" id="rules-window">
+      <button class="close" id="close-rules">x</button>
+      <h2 id="how-to-header">How to play:</h2>
+      <p id="how-to-body">placeholder</p>
+      </div>
     </div>
     <button id="how-to">How to Play</button>
   </main>
