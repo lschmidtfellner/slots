@@ -57,7 +57,7 @@ button:active {
 .wheel {
   display: flex;
   flex-direction: column;
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(236, 236, 236);
   box-shadow: inset 0 0 15px rgb(104, 104, 104);
   width: 32%;
   height: 400px;
