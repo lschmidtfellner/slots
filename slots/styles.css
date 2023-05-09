@@ -56,9 +56,14 @@ button:active {
 }
 
 .wheel {
+  display: flex;
+  flex-direction: column;
   background-color: rgb(211, 211, 211);
   width: 32%;
   height: 400px;
+  justify-items: center;
+  overflow: auto;
+  font-size: 100px;
 }
 
 .pop-out {

@@ -1,14 +1,16 @@
 // ** storing variables for fetched document elements **
 
 const popOverlay = document.getElementById('pop-overlay')
-
-// rules window elements
 const rulesWindow = document.getElementById('rules-window')
 const closeRules = document.getElementById('close-rules')
 const openRules = document.getElementById('how-to')
 const moneyWindow = document.getElementById('money-window')
 const openMoney = document.getElementById('open-money')
 const closeMoney = document.getElementById('close-money')
+const firstWheel = document.getElementById('slot1')
+const secondWheel = document.getElementById('slot2')
+const thirdWheel = document.getElementById('slot3')
+const spin = document.getElementById('spin')
 
 //** event listeners** //
 
@@ -43,7 +45,6 @@ closeMoney.onclick = function () {
   moneyWindow.style.display = 'none'
 }
 
-
 //**  slot wheel code  **
 
 //declare constants
@@ -56,7 +57,7 @@ const items = [
   '🍑',
   '🍒',
   '🍀',
-  '7',    
+  '7',
   '🍒',
   '🍇',
   '🍀',
@@ -67,11 +68,26 @@ const items = [
   '🍈',
   '🍑',
   '🍉',
-  '🍒',
-];
+  '🍒'
+]
 
-const slot1 = [' ',' ',' ']
-const slot2 = [' ',' ',' ']
-const slot3 = [' ',' ',' ']
+// const slot1 = ['', '', '', '', '']
+// const slot2 = ['', '', '', '', '']
+// const slot3 = ['', '', '', '', '']
 
+const slot1 = ['🍊', '🍉', '🍒', '🍑', '🍈']
+const slot2 = ['🍈', '🍊', '🍉', '🍒', '🍑']
+const slot3 = ['🍉', '🍒', '🍑', '🍈', '🍊']
 
+function spinWheel(arr, el, a = 0) {
+  setInterval(() => {
+    let b = a+1
+    let c = a+2
+    el.innerText = `${arr[c % arr.length]} ${arr[b % arr.length]} ${arr[a % arr.length]}`;
+    a++;
+  }, 100);
+}
+
+spin.addEventListener('click', function () {
+  spinWheel(slot1, firstWheel)
+})
