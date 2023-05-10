@@ -51,7 +51,7 @@ button:hover {
 #slots {
   display: flex; 
   justify-content: center;
-  gap: 2vw;
+  gap: 0vw;
   position: fixed 50% 50%;
 }
 
