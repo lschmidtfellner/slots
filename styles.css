@@ -7,7 +7,7 @@ body {
   justify-content: center;
   text-align: center;
   font-family: sans-serif;
-  /* background-image: linear-gradient(135deg, rgb(65, 28, 65), rgb(20, 20, 82)) */
+  /* background-color: rgb(35, 35, 35); */
   }
 
 main {
@@ -16,18 +16,25 @@ main {
 }
 
 h1 {
-  /* color: rgb(255, 213, 28); */
+
 }
 
 #msg-box {
   padding: 20px;
   margin-top: 3vh;
   height: 80px;
-  width: 100%;
+  margin-bottom: 2vh;
 }
 
 button:hover {
   background-color: rgb(96, 96, 96);
+}
+
+.money {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  line-height: 1vh;
 }
 
 .button-row {
@@ -53,6 +60,7 @@ background-color: gray;
 color: white;
 border: none;
 padding: 10px 40px;
+height: 40px;
 }
 
 button:active {
@@ -106,7 +114,7 @@ input {
 }
 
 #how-to {
-  margin-top: 3vh;
+  margin-top: 2vh;
   padding: 0;
   background-color: rgba(240, 248, 255, 0);
   color: black;

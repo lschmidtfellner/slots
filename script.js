@@ -23,7 +23,8 @@ const lightFour = document.getElementById('light4')
 const msg = document.getElementById('msg')
 const wagerBtn = document.getElementById('wager')
 let wager = 0
-let balance = 0
+let winnings
+let balance = 10
 let spinning = false
 
 //** event listeners** //
@@ -132,19 +133,71 @@ function wagerCounter() {
 //different wager multipliers per symbol
 function checkWin() {
   if (spinning === true) {
-    let winnings
     if (results1[1] === results2[1] && results1[1] === results3[1]) {
       if (results1[1] === '🍒') {
-        winnings = wager * 3
+        winnings = wager * 5
       } else if (results1[1] === '🍈') {
-        winnings = wager * 4
-      } else if (results1[1] === '🍇' || results1[1] === '🍉') {
-        winnings = wager * 4
-      } else if (results1[1] === '🍀' || results1[1] === '🍊') {
         winnings = wager * 8
+      } else if (results1[1] === '🍇' || results1[1] === '🍉') {
+        winnings = wager * 8
+      } else if (results1[1] === '🍀' || results1[1] === '🍊') {
+        winnings = wager * 100
       }
-      msg.innerText = `You won ${winnings}!`
+      msg.innerText = `You won $${winnings}!`
       balance += winnings
+      balanceDisplay.innerText = balance
+    } else if (results1[0] === results2[0] && results1[0] === results3[0]) {
+      if (results1[0] === '🍒') {
+        winnings = wager * 5
+      } else if (results1[0] === '🍈') {
+        winnings = wager * 8
+      } else if (results1[0] === '🍇' || results1[0] === '🍉') {
+        winnings = wager * 8
+      } else if (results1[0] === '🍀' || results1[0] === '🍊') {
+        winnings = wager * 100
+      }
+      msg.innerText = `You won $${winnings}!`
+      balance += winnings
+      balanceDisplay.innerText = balance
+    } else if (results1[2] === results2[2] && results1[2] === results3[2]) {
+      if (results1[2] === '🍒') {
+        winnings = wager * 5
+      } else if (results1[2] === '🍈') {
+        winnings = wager * 8
+      } else if (results1[2] === '🍇' || results1[2] === '🍉') {
+        winnings = wager * 8
+      } else if (results1[2] === '🍀' || results1[2] === '🍊') {
+        winnings = wager * 100
+      }
+      msg.innerText = `You won $${winnings}!`
+      balance += winnings
+      balanceDisplay.innerText = balance
+    } else if (results1[0] === results2[1] && results1[0] === results3[2]) {
+      if (results1[0] === '🍒') {
+        winnings = wager * 5
+      } else if (results1[0] === '🍈') {
+        winnings = wager * 8
+      } else if (results1[0] === '🍇' || results1[0] === '🍉') {
+        winnings = wager * 8
+      } else if (results1[0] === '🍀' || results1[0] === '🍊') {
+        winnings = wager * 100
+      }
+      msg.innerText = `You won $${winnings}!`
+      balance += winnings
+      balanceDisplay.innerText = balance
+    } else if (results1[2] === results2[1] && results1[2] === results3[0]) {
+      if (results1[2] === '🍒') {
+        winnings = wager * 5
+      } else if (results1[2] === '🍈') {
+        winnings = wager * 8
+      } else if (results1[2] === '🍇' || results1[2] === '🍉') {
+        winnings = wager * 8
+      } else if (results1[2] === '🍀' || results1[2] === '🍊') {
+        winnings = wager * 100
+      }
+      msg.innerText = `You won $${winnings}!`
+      balance += winnings
+      balanceDisplay.innerText = balance
     } else {
       msg.innerText = 'Maybe next time!'
     }
@@ -158,23 +211,23 @@ function checkWin() {
 
 //declare variables
 const items = [
-  '🍊',
   '🍒',
   '🍉',
   '🍇',
   '🍈',
   '🍒',
   '🍀',
-  '🍊',
   '🍒',
+  '🍈',
   '🍇',
   '🍀',
   '🍒',
   '🍒',
   '🍈',
-  '🍈',
   '🍉',
-  '🍒'
+  '🍒',
+  '🍈',
+  '🍉'
 ]
 
 let results1 = []
