@@ -107,22 +107,22 @@ function wagerCounter() {
     if (wager === 0) {
       balance--
       balanceDisplay.innerText = balance
-      lightOne.style.backgroundColor = 'red'
+      lightOne.style.backgroundColor = '#e73c3c'
       wager++
     } else if (wager === 1) {
       balance--
       balanceDisplay.innerText = balance
-      lightTwo.style.backgroundColor = 'red'
+      lightTwo.style.backgroundColor = '#e73c3c'
       wager++
     } else if (wager === 2) {
       balance--
       balanceDisplay.innerText = balance
-      lightThree.style.backgroundColor = 'red'
+      lightThree.style.backgroundColor = '#e73c3c'
       wager++
     } else if (wager === 3) {
       balance--
       balanceDisplay.innerText = balance
-      lightFour.style.backgroundColor = 'red'
+      lightFour.style.backgroundColor = '#e73c3c'
       wager++
     }
   } else {
@@ -238,10 +238,10 @@ function resetResults() {
   results1 = []
   results2 = []
   results3 = []
-  lightOne.style.backgroundColor = 'white'
-  lightTwo.style.backgroundColor = 'white'
-  lightThree.style.backgroundColor = 'white'
-  lightFour.style.backgroundColor = 'white'
+  lightOne.style.backgroundColor = '#ececec'
+  lightTwo.style.backgroundColor = '#ececec'
+  lightThree.style.backgroundColor = '#ececec'
+  lightFour.style.backgroundColor = '#ececec'
 }
 
 //break the innertext of each wheel into an array after done spinning
