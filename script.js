@@ -216,7 +216,7 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
 }
 
 function spinAll() {
-  msg.innerText = ''
+  msg.innerText = ' '
   spinWheel(items, results1, firstWheel)
   spinWheel(items, results2, secondWheel)
   spinWheel(items, results3, thirdWheel)
