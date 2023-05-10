@@ -24,6 +24,7 @@ const msg = document.getElementById('msg')
 const wagerBtn = document.getElementById('wager')
 let wager = 0
 let balance = 0
+let spinning = false
 
 //** event listeners** //
 
@@ -58,8 +59,22 @@ closeMoney.onclick = function () {
   moneyWindow.style.display = 'none'
 }
 
+spin.addEventListener('click', function () {
+  if (spinning === false && wager > 0) {
+    spinning = true
+    resetResults()
+    spinAll()
+    setTimeout(() => {
+      checkWin()
+    }, 4000)
+  } else if (wager === 0) {
+    msg.innerText = 'Make a wager first!'
+  }
+})
+
 //** wagering system **
 
+// add funds
 addBtn.onclick = function () {
   if (addValue.value > 0) {
     balance += parseInt(addValue.value)
@@ -68,6 +83,7 @@ addBtn.onclick = function () {
   }
 }
 
+// withdraw funds
 cashBtn.onclick = function () {
   if (cashValue.value > 0) {
     balance -= parseInt(cashValue.value)
@@ -76,56 +92,66 @@ cashBtn.onclick = function () {
   }
 }
 
+//wager button
+
 wagerBtn.onclick = function () {
-  wagerCounter()
+  if (spinning === false) {
+    wagerCounter()
+  }
 }
 
 //increase wager
 function wagerCounter() {
-  if ((wager === 0)) {
-    balance--
-    balanceDisplay.innerText = balance
-    lightOne.style.backgroundColor = 'red'
-    wager++
-  } else if ((wager === 1)) {
-    balance--
-    balanceDisplay.innerText = balance
-    lightTwo.style.backgroundColor = 'red'
-    wager++
-  } else if ((wager === 2)) {
-    balance--
-    balanceDisplay.innerText = balance
-    lightThree.style.backgroundColor = 'red'
-    wager++
-  } else if ((wager === 3)) {
-    balance--
-    balanceDisplay.innerText = balance
-    lightFour.style.backgroundColor = 'red'
-    wager++
-  } 
+  if (balance >= 1) {
+    if (wager === 0) {
+      balance--
+      balanceDisplay.innerText = balance
+      lightOne.style.backgroundColor = 'red'
+      wager++
+    } else if (wager === 1) {
+      balance--
+      balanceDisplay.innerText = balance
+      lightTwo.style.backgroundColor = 'red'
+      wager++
+    } else if (wager === 2) {
+      balance--
+      balanceDisplay.innerText = balance
+      lightThree.style.backgroundColor = 'red'
+      wager++
+    } else if (wager === 3) {
+      balance--
+      balanceDisplay.innerText = balance
+      lightFour.style.backgroundColor = 'red'
+      wager++
+    }
+  } else {
+    msg.innerText = 'Add funds before spinning!'
+  }
 }
 
 //different wager multipliers per symbol
-
 function checkWin() {
-  let winnings
-  if (results1[1] === results2[1] && results1[1] === results3[1]) {
-    if (results1[1] === '🍒') {
-      winnings = wager * 3
-    } else if (results1[1] === '🍈') {
-      winnings = wager * 4
-    } else if (results1[1] === '🍇' || results1[1] === '🍉') {
-      winnings = wager * 4
-    } else if (results1[1] === '🍀' || results1[1] === '🍊') {
-      winnings = wager * 8
+  if (spinning === true) {
+    let winnings
+    if (results1[1] === results2[1] && results1[1] === results3[1]) {
+      if (results1[1] === '🍒') {
+        winnings = wager * 3
+      } else if (results1[1] === '🍈') {
+        winnings = wager * 4
+      } else if (results1[1] === '🍇' || results1[1] === '🍉') {
+        winnings = wager * 4
+      } else if (results1[1] === '🍀' || results1[1] === '🍊') {
+        winnings = wager * 8
+      }
+      msg.innerText = `You won ${winnings}!`
+      balance += winnings
+    } else {
+      msg.innerText = 'Maybe next time!'
     }
-    msg.innerText = `You won ${winnings}!`
-    balance += winnings
-  } else {
-    msg.innerText = 'Maybe next time!'
+    winnings = 0
+    wager = 0
   }
-  winnings = 0
-  wager = 0
+  spinning = false
 }
 
 //**  slot wheel code  **
@@ -159,12 +185,18 @@ function resetResults() {
   results1 = []
   results2 = []
   results3 = []
+  lightOne.style.backgroundColor = 'white'
+  lightTwo.style.backgroundColor = 'white'
+  lightThree.style.backgroundColor = 'white'
+  lightFour.style.backgroundColor = 'white'
 }
 
+//break the innertext of each wheel into an array after done spinning
 function getResults(el, arr) {
   arr.push(...el.innerText.split(' '))
 }
 
+//spin a wheel div for a fixed rate at a random time between 3 and 6 seconds
 function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
   const time = Math.floor(Math.random() * 1000) + 3000
 
@@ -183,10 +215,9 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
   }, time)
 }
 
-spin.addEventListener('click', function () {
-  resetResults()
+function spinAll() {
+  msg.innerText = ''
   spinWheel(items, results1, firstWheel)
   spinWheel(items, results2, secondWheel)
   spinWheel(items, results3, thirdWheel)
-  checkWin()
-})
+}
