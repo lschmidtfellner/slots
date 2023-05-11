@@ -31,6 +31,7 @@ line-height: 1.3;
 #msg-box {
   padding: 10px;
   height: 80px;
+  width: 100%;
   background-color: rgb(200, 244, 244);
   margin-bottom: 30px;
   margin-top: 20px;
@@ -79,10 +80,6 @@ line-height: 1.3;
   justify-content: center;
   gap: 10px;
   position: fixed 50% 50%;
-}
-
-.wheel {
-  transition: all ease-in 0.5s;
 }
 
 #add-btn, #cash-btn {
@@ -227,9 +224,4 @@ input {
 .wager-spin {
   font-size: 4vh;
   line-height: 0vh;
-}
-
-@keyframes spin {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100%); }
 }
