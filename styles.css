@@ -7,7 +7,7 @@ body {
   justify-content: center;
   text-align: center;
   font-family: sans-serif;
-  background-color: rgb(116, 116, 116);
+  background-color: rgb(92, 92, 92);
   }
 
 main {
@@ -90,10 +90,10 @@ button.game {
   background: var(--bg);
   color: var(--text-color);
   padding: 1em;
-  font-weight: bold;
+  font-weight:800;
   text-transform: uppercase;
   transition: 0.2s;
-  border-radius: 5px;
+  border-radius: 100px;
   opacity: 0.8;
   letter-spacing: 1px;
   box-shadow: #5195b5 0px 7px 2px, #000 0px 8px 5px;
@@ -157,6 +157,7 @@ input {
 }
 
 #how-to {
+  display: none;
   margin-top: 2vh;
   padding: 0;
   background-color: rgba(240, 248, 255, 0);
