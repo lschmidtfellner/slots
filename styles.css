@@ -7,7 +7,7 @@ body {
   justify-content: center;
   text-align: center;
   font-family: sans-serif;
-  /* background-color: rgb(35, 35, 35); */
+  background-color: rgb(116, 116, 116);
   }
 
 main {
@@ -16,14 +16,44 @@ main {
 }
 
 h1 {
+line-height: 1.3;
+}
 
+#msg, #balance {
+  font-family: 'Press Start 2P', cursive;
+  color: rgb(68, 82, 109);
+}
+
+#msg {
+  text-transform: uppercase;
 }
 
 #msg-box {
-  padding: 20px;
-  margin-top: 3vh;
+  padding: 10px;
   height: 80px;
-  margin-bottom: 2vh;
+  background-color: rgb(200, 244, 244);
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 60px;
+}
+
+#balance-box {
+  padding: 5px;
+  padding-left: 20px;
+  width: 45%;
+  text-align: left;
+  background-color: rgb(200, 244, 244);
+  border-radius: 30px;
+}
+
+#msg-box, #balance-box {
+  background-color: rgb(200, 244, 244);
+  box-shadow: inset 0 0 15px rgb(104, 104, 104);
+}
+
+#balance {
+  padding: 0;
+  font-size: 15pt;
 }
 
 .money {
@@ -47,12 +77,12 @@ h1 {
 #slots {
   display: flex; 
   justify-content: center;
-  gap: 0vw;
+  gap: 10px;
   position: fixed 50% 50%;
 }
 
-button {
-  --bg: #3ca8e7;
+button.game {
+  --bg: #5bb5df;
   --text-color: #fff;
   position: relative;
   width: 200px;
@@ -66,16 +96,16 @@ button {
   border-radius: 5px;
   opacity: 0.8;
   letter-spacing: 1px;
-  box-shadow: #3d85ae 0px 7px 2px, #000 0px 8px 5px;
+  box-shadow: #5195b5 0px 7px 2px, #000 0px 8px 5px;
 }
 
-button:hover {
+button.game:hover {
   opacity: 1;
 }
 
-button:active {
+button.game:active {
   top: 4px;
-  box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
+  box-shadow: #5195b5 0px 3px 2px,#9fe1ff 0px 3px 10px;
 }
 
 .wheel {
@@ -123,13 +153,14 @@ button:active {
 input {
   padding: 20px 50px;
   margin-bottom: 5vh;
+  font-size: larger;
 }
 
 #how-to {
   margin-top: 2vh;
   padding: 0;
   background-color: rgba(240, 248, 255, 0);
-  color: black;
+  color: rgb(205, 205, 205);
 }
 
 #how-to:hover {
@@ -169,14 +200,19 @@ input {
 }
 
 .light{
-  background-color: #ececec;
+  background-color: #721c1c;
   padding: 20px;
   border-radius: 50%;
   border-color: rgba(255, 255, 255, 0);
   border-style: none;
-  box-shadow: inset 0px 4px 7px #5a5a5a;
+  box-shadow: inset -2px -2px 7px #382b2b;
 }
 
 #open-money {
   width: 150px;
+}
+
+.wager-spin {
+  font-size: 4vh;
+  line-height: 0vh;
 }

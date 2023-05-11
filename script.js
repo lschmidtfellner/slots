@@ -65,11 +65,12 @@ spin.addEventListener('click', function () {
     spinning = true
     resetResults()
     spinAll()
+    msg.innerText = ':0'
     setTimeout(() => {
       checkWin()
     }, 4000)
   } else if (wager === 0) {
-    msg.innerText = 'Make a wager first!'
+    msg.innerText = 'Make a wager'
   }
 })
 
@@ -107,26 +108,30 @@ function wagerCounter() {
     if (wager === 0) {
       balance--
       balanceDisplay.innerText = balance
-      lightOne.style.backgroundColor = '#e73c3c'
+      lightOne.style.backgroundColor = '#fc472b'
+      lightOne.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     } else if (wager === 1) {
       balance--
       balanceDisplay.innerText = balance
-      lightTwo.style.backgroundColor = '#e73c3c'
+      lightTwo.style.backgroundColor = '#fc472b'
+      lightTwo.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     } else if (wager === 2) {
       balance--
       balanceDisplay.innerText = balance
-      lightThree.style.backgroundColor = '#e73c3c'
+      lightThree.style.backgroundColor = '#fc472b'
+      lightThree.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     } else if (wager === 3) {
       balance--
       balanceDisplay.innerText = balance
-      lightFour.style.backgroundColor = '#e73c3c'
+      lightFour.style.backgroundColor = '#fc472b'
+      lightFour.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     }
   } else {
-    msg.innerText = 'Add funds before spinning!'
+    msg.innerText = 'Add funds'
   }
 }
 
@@ -199,7 +204,7 @@ function checkWin() {
       balance += winnings
       balanceDisplay.innerText = balance
     } else {
-      msg.innerText = 'Maybe next time!'
+      msg.innerText = ':('
     }
     winnings = 0
     wager = 0
@@ -238,10 +243,14 @@ function resetResults() {
   results1 = []
   results2 = []
   results3 = []
-  lightOne.style.backgroundColor = '#ececec'
-  lightTwo.style.backgroundColor = '#ececec'
-  lightThree.style.backgroundColor = '#ececec'
-  lightFour.style.backgroundColor = '#ececec'
+  lightOne.style.backgroundColor = '#721c1c'
+  lightTwo.style.backgroundColor = '#721c1c'
+  lightThree.style.backgroundColor = '#721c1c'
+  lightFour.style.backgroundColor = '#721c1c'
+  lightOne.style.boxShadow = 'inset -2px -2px 7px #382b2b'
+  lightTwo.style.boxShadow = 'inset -2px -2px 7px #382b2b'
+  lightThree.style.boxShadow = 'inset -2px -2px 7px #382b2b'
+  lightFour.style.boxShadow = 'inset -2px -2px 7px #382b2b'
 }
 
 //break the innertext of each wheel into an array after done spinning

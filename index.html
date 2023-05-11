@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer src="script.js"></script>
   <link defer rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
   <title>Slots</title>
 </head>
 <body>
   <div id="pop-overlay"></div>
   <main>
     <div id="msg-box">
-      <h1 id="msg">Set your Wager</h1>
+      <h1 id="msg">Set Wager</h1>
     </div>
     <div id="slots">
       <div class="wheel" id="slot1">🍒 🍉 🍇</div>
@@ -23,14 +26,11 @@
       <div class="arrow"></div>
       <div class="arrow"></div>
       <div class="arrow"></div>
-      <div class="arrow"></div>
-      <div class="arrow"></div>
-      <div class="arrow"></div>
     </aside>
     <div id="ui">
       <div class="button-row">
-        <button class="wager-spin" id="wager">WAGER</button>
-        <button class="wager-spin" id="spin">SPIN</button>
+        <button class="game wager-spin" id="wager">BET</button>
+        <button class="game wager-spin" id="spin">SPIN</button>
       </div>
       <div class="counter">
         <div class="light" id="light1"></div>
@@ -39,8 +39,10 @@
         <div class="light" id="light4"></div>
       </div>
       <div class="money">
-        <h2 id="balance">Balance: $<span id="balance-amt">10</span></h2>
-        <button id="open-money">MANAGE FUNDS</button>
+        <div id="balance-box">
+          <h2 id="balance">$<span id="balance-amt">10</span>.00</h2>
+        </div>
+        <button class="game" id="open-money">MANAGE FUNDS</button>
       </div>
     </div>
     <div class="pop-out" id="money-window">
@@ -48,13 +50,13 @@
       <div class="manage-funds" id="add-funds">
         <h3 id="add-text">Add to your balance:</h3>
         <input id="deposit-amt">
-        <button id="add-btn">submit</button>
+        <button id="add-btn">DEPOSIT</button>
       <div class="manage-funds" id="cash-out">
         <h3 id="add-text">Cash out current balance:</h3>
         <input id="withdraw-amt">
-        <button id="cash-btn">submit</button>
-        <h2>Current Balance: $</h2>
+        <button id="cash-btn">WITHDRAW</button>
       </div>
+      <h2>Current Balance: $</h2>
     </div>
     </div>
     <div class="pop-out" id="rules-window">
