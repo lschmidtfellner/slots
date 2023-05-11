@@ -25,7 +25,15 @@ const wagerBtn = document.getElementById('wager')
 const slot1text = document.getElementById('slot1text')
 const slot2text = document.getElementById('slot2text')
 const slot3text = document.getElementById('slot3text')
-// const playSoundBtn = document.getElementById('play-sound')
+const spinAudio = new Audio('assets/spinning.mp3')
+const stopAudio = new Audio('assets/stop.wav')
+const winAudio = new Audio('assets/win.wav')
+const btnAudio = new Audio('assets/button.wav')
+const btnPushAudio = function () {
+  btnAudio.currentTime = 0
+  btnAudio.play()
+}
+winAudio.volume = 0.5
 let wager = 0
 let winnings
 let balance = 10
@@ -41,6 +49,7 @@ popOverlay.onclick = function () {
 }
 
 //open money management and overlay
+btnPushAudio()
 openMoney.onclick = function () {
   popOverlay.style.display = 'block'
   moneyWindow.style.display = 'block'
@@ -65,13 +74,17 @@ closeMoney.onclick = function () {
 }
 
 spin.addEventListener('click', function () {
+  btnPushAudio()
   if (spinning === false && wager > 0) {
+    spinAudio.play()
     spinning = true
     resetResults()
     spinAll()
     msg.innerText = ':0'
     setTimeout(() => {
       checkWin()
+      spinAudio.pause()
+      spinAudio.currentTime = 0
     }, 4000)
   } else if (wager === 0) {
     msg.innerText = 'Make a wager'
@@ -101,6 +114,7 @@ cashBtn.onclick = function () {
 //wager button
 
 wagerBtn.onclick = function () {
+  btnPushAudio()
   if (spinning === false) {
     wagerCounter()
   }
@@ -146,6 +160,7 @@ function wagerCounter() {
 //different wager multipliers per symbol
 function checkWin() {
   if (spinning === true) {
+    winAudio.currentTime = 0
     if (results1[2] === results2[2] && results1[2] === results3[2]) {
       if (results1[2] === '🍒') {
         winnings = wager * 5
@@ -159,6 +174,7 @@ function checkWin() {
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
+      winAudio.play()
     } else if (results1[1] === results2[1] && results1[1] === results3[1]) {
       if (results1[1] === '🍒') {
         winnings = wager * 5
@@ -172,6 +188,7 @@ function checkWin() {
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
+      winAudio.play()
     } else if (results1[3] === results2[3] && results1[3] === results3[3]) {
       if (results1[2] === '🍒') {
         winnings = wager * 5
@@ -185,6 +202,7 @@ function checkWin() {
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
+      winAudio.play()
     } else if (results1[1] === results2[2] && results1[1] === results3[3]) {
       if (results1[1] === '🍒') {
         winnings = wager * 5
@@ -198,6 +216,7 @@ function checkWin() {
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
+      winAudio.play()
     } else if (results1[3] === results2[2] && results1[3] === results3[1]) {
       if (results1[3] === '🍒') {
         winnings = wager * 5
@@ -211,6 +230,7 @@ function checkWin() {
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
+      winAudio.play()
     } else {
       msg.innerText = ':('
     }
@@ -280,6 +300,7 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
     el.style.transform = 'translateY(-63px)'
     a++
     el.style.filter = 'blur(3px)'
+    
     setTimeout(() => {
       el.style.transform = 'translateY(-127px)'
     }, 50)
@@ -288,6 +309,7 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
     el.style.filter = 'none'
     getResults(el, arr2)
     clearInterval(interval)
+    stopAudio.play()
   }, time)
 }
 
