@@ -22,6 +22,7 @@ const lightThree = document.getElementById('light3')
 const lightFour = document.getElementById('light4')
 const msg = document.getElementById('msg')
 const wagerBtn = document.getElementById('wager')
+// const playSoundBtn = document.getElementById('play-sound')
 let wager = 0
 let winnings
 let balance = 10
@@ -270,7 +271,6 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
     }`
     a++
   }, 100)
-
   setTimeout(() => {
     getResults(el, arr2)
     clearInterval(interval)
