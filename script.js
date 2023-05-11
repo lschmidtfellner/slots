@@ -22,6 +22,9 @@ const lightThree = document.getElementById('light3')
 const lightFour = document.getElementById('light4')
 const msg = document.getElementById('msg')
 const wagerBtn = document.getElementById('wager')
+const slot1text = document.getElementById('slot1text')
+const slot2text = document.getElementById('slot2text')
+const slot3text = document.getElementById('slot3text')
 // const playSoundBtn = document.getElementById('play-sound')
 let wager = 0
 let winnings
@@ -110,25 +113,29 @@ function wagerCounter() {
       balance--
       balanceDisplay.innerText = balance
       lightOne.style.backgroundColor = '#fc472b'
-      lightOne.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
+      lightOne.style.boxShadow =
+        '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     } else if (wager === 1) {
       balance--
       balanceDisplay.innerText = balance
       lightTwo.style.backgroundColor = '#fc472b'
-      lightTwo.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
+      lightTwo.style.boxShadow =
+        '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     } else if (wager === 2) {
       balance--
       balanceDisplay.innerText = balance
       lightThree.style.backgroundColor = '#fc472b'
-      lightThree.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
+      lightThree.style.boxShadow =
+        '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     } else if (wager === 3) {
       balance--
       balanceDisplay.innerText = balance
       lightFour.style.backgroundColor = '#fc472b'
-      lightFour.style.boxShadow = '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
+      lightFour.style.boxShadow =
+        '0px 0px 10px #ff6562, inset -2px -2px 7px #ff7145'
       wager++
     }
   } else {
@@ -139,7 +146,20 @@ function wagerCounter() {
 //different wager multipliers per symbol
 function checkWin() {
   if (spinning === true) {
-    if (results1[1] === results2[1] && results1[1] === results3[1]) {
+    if (results1[2] === results2[2] && results1[2] === results3[2]) {
+      if (results1[2] === '🍒') {
+        winnings = wager * 5
+      } else if (results1[2] === '🍈') {
+        winnings = wager * 8
+      } else if (results1[2] === '🍇' || results1[2] === '🍉') {
+        winnings = wager * 8
+      } else if (results1[2] === '🍀' || results1[2] === '🍊') {
+        winnings = wager * 100
+      }
+      msg.innerText = `You won $${winnings}!`
+      balance += winnings
+      balanceDisplay.innerText = balance
+    } else if (results1[1] === results2[1] && results1[1] === results3[1]) {
       if (results1[1] === '🍒') {
         winnings = wager * 5
       } else if (results1[1] === '🍈') {
@@ -152,53 +172,40 @@ function checkWin() {
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
-    } else if (results1[0] === results2[0] && results1[0] === results3[0]) {
-      if (results1[0] === '🍒') {
-        winnings = wager * 5
-      } else if (results1[0] === '🍈') {
-        winnings = wager * 8
-      } else if (results1[0] === '🍇' || results1[0] === '🍉') {
-        winnings = wager * 8
-      } else if (results1[0] === '🍀' || results1[0] === '🍊') {
-        winnings = wager * 100
-      }
-      msg.innerText = `You won $${winnings}!`
-      balance += winnings
-      balanceDisplay.innerText = balance
-    } else if (results1[2] === results2[2] && results1[2] === results3[2]) {
+    } else if (results1[3] === results2[3] && results1[3] === results3[3]) {
       if (results1[2] === '🍒') {
         winnings = wager * 5
-      } else if (results1[2] === '🍈') {
+      } else if (results1[3] === '🍈') {
         winnings = wager * 8
-      } else if (results1[2] === '🍇' || results1[2] === '🍉') {
+      } else if (results1[3] === '🍇' || results1[3] === '🍉') {
         winnings = wager * 8
-      } else if (results1[2] === '🍀' || results1[2] === '🍊') {
+      } else if (results1[3] === '🍀' || results1[3] === '🍊') {
         winnings = wager * 100
       }
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
-    } else if (results1[0] === results2[1] && results1[0] === results3[2]) {
-      if (results1[0] === '🍒') {
+    } else if (results1[1] === results2[2] && results1[1] === results3[3]) {
+      if (results1[1] === '🍒') {
         winnings = wager * 5
-      } else if (results1[0] === '🍈') {
+      } else if (results1[1] === '🍈') {
         winnings = wager * 8
-      } else if (results1[0] === '🍇' || results1[0] === '🍉') {
+      } else if (results1[1] === '🍇' || results1[1] === '🍉') {
         winnings = wager * 8
-      } else if (results1[0] === '🍀' || results1[0] === '🍊') {
+      } else if (results1[1] === '🍀' || results1[1] === '🍊') {
         winnings = wager * 100
       }
       msg.innerText = `You won $${winnings}!`
       balance += winnings
       balanceDisplay.innerText = balance
-    } else if (results1[2] === results2[1] && results1[2] === results3[0]) {
-      if (results1[2] === '🍒') {
+    } else if (results1[3] === results2[2] && results1[3] === results3[1]) {
+      if (results1[3] === '🍒') {
         winnings = wager * 5
-      } else if (results1[2] === '🍈') {
+      } else if (results1[3] === '🍈') {
         winnings = wager * 8
-      } else if (results1[2] === '🍇' || results1[2] === '🍉') {
+      } else if (results1[3] === '🍇' || results1[3] === '🍉') {
         winnings = wager * 8
-      } else if (results1[2] === '🍀' || results1[2] === '🍊') {
+      } else if (results1[3] === '🍀' || results1[3] === '🍊') {
         winnings = wager * 100
       }
       msg.innerText = `You won $${winnings}!`
@@ -266,12 +273,19 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
   const interval = setInterval(() => {
     let b = a + 1
     let c = a + 2
-    el.innerText = `${arr1[c % arr1.length]} ${arr1[b % arr1.length]} ${
-      arr1[a % arr1.length]
-    }`
+    let z = a - 1
+    el.innerText = `${arr1[z % arr1.length]} ${arr1[c % arr1.length]} ${
+      arr1[b % arr1.length]
+    } ${arr1[a % arr1.length]}`
+    el.style.transform = 'translateY(-63px)'
     a++
+    el.style.filter = 'blur(3px)'
+    setTimeout(() => {
+      el.style.transform = 'translateY(-127px)'
+    }, 50)
   }, 100)
   setTimeout(() => {
+    el.style.filter = 'none'
     getResults(el, arr2)
     clearInterval(interval)
   }, time)
@@ -279,7 +293,9 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
 
 function spinAll() {
   msg.innerText = ' '
-  spinWheel(items, results1, firstWheel)
-  spinWheel(items, results2, secondWheel)
-  spinWheel(items, results3, thirdWheel)
+  spinWheel(items, results1, slot1text)
+  spinWheel(items, results2, slot2text)
+  spinWheel(items, results3, slot3text)
 }
+
+// **sounds through tone.js**
