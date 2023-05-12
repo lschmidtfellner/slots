@@ -79,6 +79,9 @@ line-height: 1.3;
   justify-content: center;
   gap: 10px;
   position: fixed 50% 50%;
+  border: solid 10px;
+  border-color: #304955;
+  background-color: #304955;
 }
 
 #add-btn, #cash-btn {
