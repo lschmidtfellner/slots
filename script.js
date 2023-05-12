@@ -1,4 +1,4 @@
-// ** storing variables for fetched document elements **
+// ** storing constants for fetched document elements **
 
 const popOverlay = document.getElementById('pop-overlay')
 const rulesWindow = document.getElementById('rules-window')
@@ -26,15 +26,21 @@ const slot1text = document.getElementById('slot1text')
 const slot2text = document.getElementById('slot2text')
 const slot3text = document.getElementById('slot3text')
 const mainDiv = document.querySelector('main')
+
+// ** storing audio files
 const spinAudio = new Audio('assets/spinning.mp3')
 const stopAudio = new Audio('assets/stop.wav')
 const winAudio = new Audio('assets/win.wav')
 const btnAudio = new Audio('assets/button.wav')
+const negative = new Audio('assets/negative.wav')
 const btnPushAudio = function () {
   btnAudio.currentTime = 0
   btnAudio.play()
 }
+negative.volume = 0.5
 winAudio.volume = 0.5
+
+//declaring variables
 let wager = 0
 let winnings
 let balance = 10
@@ -74,7 +80,9 @@ closeMoney.onclick = function () {
   moneyWindow.style.display = 'none'
 }
 
+//game start triggered by spin button
 spin.addEventListener('click', function () {
+  negative.currentTime = 0
   btnPushAudio()
   if (spinning === false && wager > 0) {
     spinAudio.play()
@@ -88,6 +96,7 @@ spin.addEventListener('click', function () {
       spinAudio.currentTime = 0
     }, 4000)
   } else if (wager === 0) {
+    negative.play()
     msg.innerText = 'Make a wager'
   }
 })
@@ -115,6 +124,7 @@ cashBtn.onclick = function () {
 //wager button
 
 wagerBtn.onclick = function () {
+  negative.currentTime = 0
   btnPushAudio()
   if (spinning === false) {
     wagerCounter()
@@ -154,12 +164,14 @@ function wagerCounter() {
       wager++
     }
   } else {
+    negative.play()
     msg.innerText = 'Add funds'
   }
 }
 
 //different wager multipliers per symbol
 function checkWin() {
+  negative.currentTime = 0
   if (spinning === true) {
     winAudio.currentTime = 0
     if (results1[2] === results2[2] && results1[2] === results3[2]) {
@@ -233,6 +245,7 @@ function checkWin() {
       balanceDisplay.innerText = balance
       winAudio.play()
     } else {
+      negative.play()
       msg.innerText = ':('
     }
     winnings = 0
@@ -268,6 +281,7 @@ let results1 = []
 let results2 = []
 let results3 = []
 
+//reset gamestate
 function resetResults() {
   results1 = []
   results2 = []
@@ -287,7 +301,7 @@ function getResults(el, arr) {
   arr.push(...el.innerText.split(' '))
 }
 
-//spin a wheel div for a fixed rate at a random time between 3 and 6 seconds
+//spin a wheel div for a fixed rate at a random time between 3 and 5 seconds
 function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
   const time = Math.floor(Math.random() * 1000) + 3000
 
@@ -323,6 +337,7 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
   }, time)
 }
 
+// invokes spinWheel on all slots
 function spinAll() {
   msg.innerText = ' '
   spinWheel(items, results1, slot1text)
@@ -330,6 +345,7 @@ function spinAll() {
   spinWheel(items, results3, slot3text)
 }
 
+//shake animation for when a slot stops
 function shake() {
   mainDiv.style.transform = 'translateY(10px'
   setTimeout(() => {
@@ -348,5 +364,3 @@ function shake() {
     mainDiv.style.transform = 'translateY(0px'
   },250)
 }
-
-// **sounds through tone.js**
