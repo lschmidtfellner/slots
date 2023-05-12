@@ -298,13 +298,21 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
     el.innerText = `${arr1[z % arr1.length]} ${arr1[c % arr1.length]} ${
       arr1[b % arr1.length]
     } ${arr1[a % arr1.length]}`
-    el.style.transform = 'translateY(-60px)'
     a++
     el.style.filter = 'blur(3px)'
     
     setTimeout(() => {
-      el.style.transform = 'translateY(-127px)'
+      el.style.transform = 'translateY(-97px)'
+    }, 25)
+    setTimeout(() => {
+      el.style.transform = 'translateY(-66px)'
     }, 50)
+    setTimeout(() => {
+      el.style.transform = 'translateY(-34px)'
+    }, 75)
+    setTimeout(() => {
+      el.style.transform = 'translateY(-0px)'
+    }, 97)
   }, 100)
   setTimeout(() => {
     el.style.filter = 'none'
