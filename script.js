@@ -311,7 +311,7 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
       el.style.transform = 'translateY(-34px)'
     }, 75)
     setTimeout(() => {
-      el.style.transform = 'translateY(-0px)'
+      el.style.transform = 'translateY(-127px)'
     }, 97)
   }, 100)
   setTimeout(() => {
