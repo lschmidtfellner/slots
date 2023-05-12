@@ -37,6 +37,7 @@ There are several improvements I plan on implementing in the future.
 1. Replacement of emojis with custom graphics and updating the UI to stylistically match
 1. Wager scaling effecting how many win conditions are available to the user (i.e., betting $1 only allows matches on  the center row to win, $2 allows for the top row, $3 for the bottom, $4 for diagonals)
 1. Updating how slot divs are structured such that using CSS transitions smooth out the spin animation
+1. Update win condition logic such that if two or more win conditions are met, the one with the highest payout is registered
 
 ## Technologies Used
 
