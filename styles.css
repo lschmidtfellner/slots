@@ -135,6 +135,7 @@ button.game:active {
 .manage-funds {
   align-items: center;
   text-align: left;
+  width: 500px;
 }
 
 #pop-overlay {

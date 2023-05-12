@@ -25,6 +25,7 @@ const wagerBtn = document.getElementById('wager')
 const slot1text = document.getElementById('slot1text')
 const slot2text = document.getElementById('slot2text')
 const slot3text = document.getElementById('slot3text')
+const mainDiv = document.querySelector('main')
 const spinAudio = new Audio('assets/spinning.mp3')
 const stopAudio = new Audio('assets/stop.wav')
 const winAudio = new Audio('assets/win.wav')
@@ -190,7 +191,7 @@ function checkWin() {
       balanceDisplay.innerText = balance
       winAudio.play()
     } else if (results1[3] === results2[3] && results1[3] === results3[3]) {
-      if (results1[2] === '🍒') {
+      if (results1[3] === '🍒') {
         winnings = wager * 5
       } else if (results1[3] === '🍈') {
         winnings = wager * 8
@@ -297,7 +298,7 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
     el.innerText = `${arr1[z % arr1.length]} ${arr1[c % arr1.length]} ${
       arr1[b % arr1.length]
     } ${arr1[a % arr1.length]}`
-    el.style.transform = 'translateY(-63px)'
+    el.style.transform = 'translateY(-60px)'
     a++
     el.style.filter = 'blur(3px)'
     
@@ -310,6 +311,7 @@ function spinWheel(arr1, arr2, el, a = Math.floor(Math.random() * 10) + 1) {
     getResults(el, arr2)
     clearInterval(interval)
     stopAudio.play()
+    shake()
   }, time)
 }
 
@@ -318,6 +320,25 @@ function spinAll() {
   spinWheel(items, results1, slot1text)
   spinWheel(items, results2, slot2text)
   spinWheel(items, results3, slot3text)
+}
+
+function shake() {
+  mainDiv.style.transform = 'translateY(10px'
+  setTimeout(() => {
+    mainDiv.style.transform = 'translateY(-10px'
+  },50)
+  setTimeout(() => {
+    mainDiv.style.transform = 'translateY(6px'
+  },100)
+  setTimeout(() => {
+    mainDiv.style.transform = 'translateY(-6px'
+  },150)
+  setTimeout(() => {
+    mainDiv.style.transform = 'translateY(3px'
+  },200)
+  setTimeout(() => {
+    mainDiv.style.transform = 'translateY(0px'
+  },250)
 }
 
 // **sounds through tone.js**
