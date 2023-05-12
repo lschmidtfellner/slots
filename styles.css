@@ -82,6 +82,7 @@ line-height: 1.3;
   border: solid 10px;
   border-color: #304955;
   background-color: #304955;
+  box-shadow: #2f383d 0 5px, #1e2427 0 5px 10px;
 }
 
 #add-btn, #cash-btn {
